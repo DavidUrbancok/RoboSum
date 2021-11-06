@@ -1,5 +1,7 @@
 namespace RoboSum.API
 {
+    using RoboSum.Persistence;
+
     /// <summary>
     /// Represents the web application's base class.
     /// </summary>
@@ -13,24 +15,24 @@ namespace RoboSum.API
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            WebApplication app = ConfigureServices(builder);
+            WebApplication app = ConfigureServices(builder).Build();
 
             Configure(app);
 
             app.Run();
         }
 
-        private static WebApplication ConfigureServices(WebApplicationBuilder builder)
+        private static WebApplicationBuilder ConfigureServices(WebApplicationBuilder builder)
         {
             // Add services to the container.
             builder.Services.AddControllers();
-            builder.Services.AddDbContext<RoboSumContext>();
+            builder.Services.AddDbContext<AbstractDbContext>();
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            return builder.Build();
+            return builder;
         }
 
         private static void Configure(WebApplication app)

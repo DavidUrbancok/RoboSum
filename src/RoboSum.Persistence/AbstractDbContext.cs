@@ -1,24 +1,13 @@
-﻿namespace RoboSum.API
+﻿namespace RoboSum.Persistence
 {
     using Microsoft.EntityFrameworkCore;
-    using RoboSum.Models;
+    using RoboSum.Domain.Entities;
 
     /// <summary>
-    /// Represents the database context class.
+    /// Represents the database context class. This is an abstract class.
     /// </summary>
-    public class RoboSumContext : DbContext
+    public class AbstractDbContext : DbContext
     {
-        private readonly IConfiguration _configuration;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="RoboSumContext"/> class.
-        /// </summary>
-        /// <param name="configuration">The web host builder configuration.</param>
-        public RoboSumContext(IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
-
         /// <summary>
         /// Gets or sets the database set of addresses.
         /// </summary>
@@ -27,7 +16,7 @@
         /// <summary>
         /// Gets or sets the database set of competitions.
         /// </summary>
-        public DbSet<Competitions> Competitions { get; set; }
+        public DbSet<Competition> Competitions { get; set; }
 
         /// <summary>
         /// Gets or sets the database set of competitors.
@@ -58,11 +47,5 @@
         /// Gets or sets the database set of teams.
         /// </summary>
         public DbSet<Team> Teams { get; set; }
-
-        /// <inheritdoc cref="DbContext.OnConfiguring(DbContextOptionsBuilder)"/>
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseNpgsql(_configuration.GetConnectionString("DefaultConnection"));
-        }
     }
 }
