@@ -11,9 +11,14 @@
         public int Id { get; set; }
 
         /// <summary>
+        /// Gets or sets the team ID that made the registration.
+        /// </summary>
+        public int TeamId { get; set; }
+
+        /// <summary>
         /// Gets or sets the team that made the registration.
         /// </summary>
-        public Team Team { get; set; }
+        public virtual Team Team { get; set; }
 
         /// <summary>
         /// Gets or sets the year of the registration.
@@ -26,8 +31,13 @@
         public string Remarks { get; set; }
 
         /// <summary>
+        /// Gets or sets the competitions ID in which the registering team participates.
+        /// </summary>
+        public int CompetitionsId { get; set; }
+
+        /// <summary>
         /// Gets or sets the competitions in which the registering team participates.
         /// </summary>
-        public Competitions Competitions { get; set; }
+        public virtual Competitions Competitions { get; set; }
     }
 }

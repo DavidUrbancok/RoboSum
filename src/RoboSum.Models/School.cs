@@ -16,8 +16,13 @@
         public string Name { get; set; }
 
         /// <summary>
+        /// Gets or sets the school's address ID.
+        /// </summary>
+        public int AddressId { get; set; }
+
+        /// <summary>
         /// Gets or sets the school's address.
         /// </summary>
-        public Address Address { get; set; }
+        public virtual Address Address { get; set; }
     }
 }

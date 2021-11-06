@@ -18,18 +18,28 @@
         public string Email { get; set; }
 
         /// <summary>
+        /// Gets or sets the team's school ID.
+        /// </summary>
+        public int SchoolId { get; set; }
+
+        /// <summary>
         /// Gets or sets the team's school.
         /// </summary>
-        public School School { get; set; }
+        public virtual School School { get; set; }
+
+        /// <summary>
+        /// Gets or sets the team's teacher ID.
+        /// </summary>
+        public int TeacherId { get; set; }
 
         /// <summary>
         /// Gets or sets the team's teacher.
         /// </summary>
-        public Teacher Teacher { get; set; }
+        public virtual Teacher Teacher { get; set; }
 
         /// <summary>
         /// Gets or sets the team's competitors.
         /// </summary>
-        public ICollection<Competitor> Competitors { get; set; }
+        public virtual ICollection<Competitor> Competitors { get; set; }
     }
 }
