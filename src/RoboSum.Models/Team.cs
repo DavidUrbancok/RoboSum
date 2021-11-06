@@ -1,5 +1,7 @@
-﻿namespace RoboSum.API.Models
+﻿namespace RoboSum.Models
 {
+    using System.Collections.Generic;
+
     /// <summary>
     /// Represents a model of a team.
     /// </summary>

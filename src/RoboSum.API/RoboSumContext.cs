@@ -1,7 +1,7 @@
 ﻿namespace RoboSum.API
 {
     using Microsoft.EntityFrameworkCore;
-    using RoboSum.API.Models;
+    using RoboSum.Models;
 
     /// <summary>
     /// Represents the database context class.

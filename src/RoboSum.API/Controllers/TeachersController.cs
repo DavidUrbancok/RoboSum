@@ -2,7 +2,7 @@
 {
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
-    using RoboSum.API.Models;
+    using RoboSum.Models;
     using static RoboSum.API.Constants;
 
     [Route($"{Api}/{CurrentVersion}/[controller]")]

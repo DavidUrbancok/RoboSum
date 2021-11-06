@@ -1,4 +1,4 @@
-﻿namespace RoboSum.API.Models
+﻿namespace RoboSum.Models
 {
     /// <summary>
     /// Represents a model of an address of a school.

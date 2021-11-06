@@ -1,4 +1,4 @@
-﻿namespace RoboSum.API.Models
+﻿namespace RoboSum.Models
 {
     using System.ComponentModel.DataAnnotations;
 
