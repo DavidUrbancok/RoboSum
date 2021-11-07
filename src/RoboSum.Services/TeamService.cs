@@ -1,6 +1,5 @@
 ﻿namespace RoboSum.Services
 {
-    using System.Linq.Expressions;
     using RoboSum.DTOs;
     using RoboSum.Services.Abstractions;
     using RoboSum.Services.Abstractions.Entities;
@@ -10,38 +9,32 @@
     /// </summary>
     public class TeamService : ITeamService
     {
-        /// <inheritdoc cref="IService{TeamDto}.AddAsync(TeamDto)"/>
-        public Task AddAsync(TeamDto entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <inheritdoc cref="IService{TeamDto}.DeleteAsync(TeamDto)"/>
-        public Task DeleteAsync(TeamDto entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <inheritdoc cref="IService{TeamDto}.GetAllAsync()"/>
-        public Task<IQueryable<TeamDto>> GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
-
         /// <inheritdoc cref="IService{TeamDto}.GetAsync(int)"/>
         public Task<TeamDto> GetAsync(int id)
         {
             throw new NotImplementedException();
         }
 
-        /// <inheritdoc cref="IService{TeamDto}.GetByConditionAsync(Expression{Func{TeamDto, bool}})"/>
-        public Task<IQueryable<TeamDto>> GetByConditionAsync(Expression<Func<TeamDto, bool>> condition)
+        /// <inheritdoc cref="IService{TeamDto}.GetAll()"/>
+        public IQueryable<TeamDto> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <inheritdoc cref="IService{TeamDto}.AddAsync(TeamDto)"/>
+        public Task AddAsync(TeamDto entity)
         {
             throw new NotImplementedException();
         }
 
         /// <inheritdoc cref="IService{TeamDto}.UpdateAsync(TeamDto)"/>
         public Task UpdateAsync(TeamDto entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <inheritdoc cref="IService{TeamDto}.DeleteAsync(TeamDto)"/>
+        public Task DeleteAsync(TeamDto entity)
         {
             throw new NotImplementedException();
         }

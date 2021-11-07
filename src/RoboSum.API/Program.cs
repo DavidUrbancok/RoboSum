@@ -24,13 +24,15 @@ namespace RoboSum.API
 
         private static WebApplicationBuilder ConfigureServices(WebApplicationBuilder builder)
         {
+            IServiceCollection services = builder.Services;
+
             // Add services to the container.
-            builder.Services.AddControllers();
-            builder.Services.AddDbContext<AbstractDbContext>();
+            services.AddControllers();
+            services.AddDbContext<AbstractDbContext>();
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            services.AddEndpointsApiExplorer();
+            services.AddSwaggerGen();
 
             return builder;
         }

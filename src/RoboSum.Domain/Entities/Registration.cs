@@ -33,11 +33,11 @@
         /// <summary>
         /// Gets or sets the competitions ID in which the registering team participates.
         /// </summary>
-        public int CompetitionsId { get; set; }
+        public int CompetitionId { get; set; }
 
         /// <summary>
         /// Gets or sets the competitions in which the registering team participates.
         /// </summary>
-        public virtual Competition Competitions { get; set; }
+        public virtual Competition Competition { get; set; }
     }
 }

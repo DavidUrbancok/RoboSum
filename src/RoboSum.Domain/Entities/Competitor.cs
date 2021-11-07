@@ -1,7 +1,5 @@
 ﻿namespace RoboSum.Domain.Entities
 {
-    using System.ComponentModel.DataAnnotations;
-
     /// <summary>
     /// Represents a model of a competitor.
     /// </summary>
@@ -10,7 +8,16 @@
         /// <summary>
         /// Gets or sets the grade of a competitor.
         /// </summary>
-        [Required]
         public int Grade { get; set; }
+
+        /// <summary>
+        /// Gets or sets the competitor's team ID.
+        /// </summary>
+        public int TeamId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the competitor's team.
+        /// </summary>
+        public virtual Team Team { get; set; }
     }
 }

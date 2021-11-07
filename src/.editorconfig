@@ -15,3 +15,6 @@ dotnet_diagnostic.SA1600.severity = none
 # IDE0065: Misplaced using directive
 dotnet_diagnostic.IDE0065.severity = none
 insert_final_newline=true
+csharp_style_var_for_built_in_types=false:error
+csharp_style_var_when_type_is_apparent=false:error
+csharp_style_var_elsewhere=false:error

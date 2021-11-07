@@ -1,7 +1,5 @@
 ﻿namespace RoboSum.Domain.Repositories
 {
-    using System.Linq.Expressions;
-
     /// <summary>
     /// Represents a contract for all basic operations on model classes.
     /// </summary>
@@ -17,17 +15,10 @@
         Task<TEntity> GetAsync(int id);
 
         /// <summary>
-        /// Asynchronously gets all entities of <typeparamref name="TEntity"/>.
+        /// Gets all entities of <typeparamref name="TEntity"/>.
         /// </summary>
         /// <returns>A <see cref="Task{TEntity}"/> containing all the found entities.</returns>
-        Task<IQueryable<TEntity>> GetAllAsync();
-
-        /// <summary>
-        /// Asynchronously gets all entities of <typeparamref name="TEntity"/> satisfying the condition in <paramref name="condition"/>.
-        /// </summary>
-        /// <param name="condition">The condition to satisfy.</param>
-        /// <returns>A <see cref="Task{TEntity}"/> containing all entities found by <paramref name="condition"/>.</returns>
-        Task<IQueryable<TEntity>> GetByConditionAsync(Expression<Func<TEntity, bool>> condition);
+        IQueryable<TEntity> GetAll();
 
         /// <summary>
         /// Asynchronously adds the entity of <typeparamref name="TEntity"/> type to the persistence layer.

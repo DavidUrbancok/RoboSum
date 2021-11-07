@@ -4,7 +4,7 @@
     using RoboSum.Domain.Entities;
 
     /// <summary>
-    /// Represents the database context class. This is an abstract class.
+    /// Represents the application's database context. This is an abstract class.
     /// </summary>
     public class AbstractDbContext : DbContext
     {
@@ -47,5 +47,11 @@
         /// Gets or sets the database set of teams.
         /// </summary>
         public DbSet<Team> Teams { get; set; }
+
+        /// <inheritdoc cref="DbContext.OnModelCreating(ModelBuilder)"/>
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(AbstractDbContext).Assembly);
+        }
     }
 }

@@ -38,6 +38,16 @@
         public virtual Teacher Teacher { get; set; }
 
         /// <summary>
+        /// Gets or sets the team's registration ID.
+        /// </summary>
+        public int RegistrationId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the team's registration.
+        /// </summary>
+        public virtual Registration Registration { get; set; }
+
+        /// <summary>
         /// Gets or sets the team's competitors.
         /// </summary>
         public virtual ICollection<Competitor> Competitors { get; set; }

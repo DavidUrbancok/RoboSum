@@ -37,5 +37,15 @@
         /// Gets or sets the address' country.
         /// </summary>
         public string Country { get; set; }
+
+        /// <summary>
+        /// Gets or sets the school ID.
+        /// </summary>
+        public int SchoolId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the school.
+        /// </summary>
+        public School School { get; set; }
     }
 }

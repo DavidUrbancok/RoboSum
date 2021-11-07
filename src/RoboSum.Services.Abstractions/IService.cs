@@ -1,7 +1,5 @@
 ﻿namespace RoboSum.Services.Abstractions
 {
-    using System.Linq.Expressions;
-
     /// <summary>
     /// Represents a contract for a generic service for <typeparamref name="TDto"/> type.
     /// </summary>
@@ -17,17 +15,10 @@
         Task<TDto> GetAsync(int id);
 
         /// <summary>
-        /// Asynchronously gets all entities of <typeparamref name="TDto"/> type.
+        /// Gets all entities of <typeparamref name="TDto"/> type.
         /// </summary>
         /// <returns>A <see cref="Task{TDto}"/> containing all the found entities.</returns>
-        Task<IQueryable<TDto>> GetAllAsync();
-
-        /// <summary>
-        /// Asynchronously gets all entities of <typeparamref name="TDto"/> satisfying the condition in <paramref name="condition"/>.
-        /// </summary>
-        /// <param name="condition">The condition to satisfy.</param>
-        /// <returns>A <see cref="Task{TDto}"/> containing all entities found by <paramref name="condition"/>.</returns>
-        Task<IQueryable<TDto>> GetByConditionAsync(Expression<Func<TDto, bool>> condition);
+        IQueryable<TDto> GetAll();
 
         /// <summary>
         /// Asynchronously adds the entity of <typeparamref name="TDto"/> type to the persistence layer.

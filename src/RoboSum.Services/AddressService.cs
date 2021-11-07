@@ -1,6 +1,8 @@
 ﻿namespace RoboSum.Services
 {
-    using System.Linq.Expressions;
+    using AutoMapper;
+    using RoboSum.Domain.Entities;
+    using RoboSum.Domain.Repositories.Entities;
     using RoboSum.DTOs;
     using RoboSum.Services.Abstractions;
     using RoboSum.Services.Abstractions.Entities;
@@ -10,40 +12,61 @@
     /// </summary>
     public class AddressService : IAddressService
     {
-        /// <inheritdoc cref="IService{AddressDto}.AddAsync(AddressDto)"/>
-        public Task AddAsync(AddressDto entity)
-        {
-            throw new NotImplementedException();
-        }
+        private readonly IMapper _mapper;
+        private readonly IAddressRepository _addressRepository;
 
-        /// <inheritdoc cref="IService{AddressDto}.DeleteAsync(AddressDto)"/>
-        public Task DeleteAsync(AddressDto entity)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AddressService"/> class.
+        /// </summary>
+        /// <param name="addressRepository">The address repository instance.</param>
+        /// <param name="mapper">The DTO to entity mapper instance.</param>
+        /// <exception cref="ArgumentNullException">
+        /// Thrown, when <paramref name="addressRepository"/> or <paramref name="mapper"/> is <see langword="null"/>.
+        /// </exception>
+        public AddressService(IAddressRepository addressRepository, IMapper mapper)
         {
-            throw new NotImplementedException();
-        }
-
-        /// <inheritdoc cref="IService{AddressDto}.GetAllAsync()"/>
-        public Task<IQueryable<AddressDto>> GetAllAsync()
-        {
-            throw new NotImplementedException();
+            _addressRepository = addressRepository ?? throw new ArgumentNullException(nameof(addressRepository));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
         /// <inheritdoc cref="IService{AddressDto}.GetAsync(int)"/>
-        public Task<AddressDto> GetAsync(int id)
+        public async Task<AddressDto> GetAsync(int id)
         {
-            throw new NotImplementedException();
+            Address address = await _addressRepository.GetAsync(id);
+
+            return _mapper.Map<AddressDto>(address);
         }
 
-        /// <inheritdoc cref="IService{AddressDto}.GetByConditionAsync(Expression{Func{AddressDto, bool}})"/>
-        public Task<IQueryable<AddressDto>> GetByConditionAsync(Expression<Func<AddressDto, bool>> condition)
+        /// <inheritdoc cref="IService{AddressDto}.GetAll()"/>
+        public IQueryable<AddressDto> GetAll()
         {
-            throw new NotImplementedException();
+            IQueryable<Address> addresses = _addressRepository.GetAll();
+
+            return _mapper.Map<IQueryable<AddressDto>>(addresses);
+        }
+
+        /// <inheritdoc cref="IService{AddressDto}.AddAsync(AddressDto)"/>
+        public async Task AddAsync(AddressDto entity)
+        {
+            Address address = _mapper.Map<Address>(entity);
+
+            await _addressRepository.AddAsync(address);
         }
 
         /// <inheritdoc cref="IService{AddressDto}.UpdateAsync(AddressDto)"/>
-        public Task UpdateAsync(AddressDto entity)
+        public async Task UpdateAsync(AddressDto entity)
         {
-            throw new NotImplementedException();
+            Address address = _mapper.Map<Address>(entity);
+
+            await _addressRepository.UpdateAsync(address);
+        }
+
+        /// <inheritdoc cref="IService{AddressDto}.DeleteAsync(AddressDto)"/>
+        public async Task DeleteAsync(AddressDto entity)
+        {
+            Address address = _mapper.Map<Address>(entity);
+
+            await _addressRepository.DeleteAsync(address);
         }
     }
 }
