@@ -1,11 +1,10 @@
-﻿namespace RoboSum.Services.Abstractions.Entities
-{
-    using RoboSum.DTOs;
+﻿namespace RoboSum.Services.Abstractions.Entities;
 
-    /// <summary>
-    /// Represents a contract for a service for <see cref="TeamDto"/> type.
-    /// </summary>
-    public interface ITeamService : IService<TeamDto>
-    {
-    }
+using RoboSum.DTOs;
+
+/// <summary>
+/// Represents a contract for a service for <see cref="TeamDto"/> type.
+/// </summary>
+public interface ITeamService : IService<TeamDto>
+{
 }

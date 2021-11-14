@@ -1,13 +1,12 @@
-﻿namespace RoboSum.DTOs
+﻿namespace RoboSum.DTOs;
+
+/// <summary>
+/// Represents a Data Transfer Object for a competitor.
+/// </summary>
+public class CompetitorDto : PersonDto
 {
     /// <summary>
-    /// Represents a Data Transfer Object for a competitor.
+    /// Gets or sets the grade of a competitor.
     /// </summary>
-    public class CompetitorDto : PersonDto
-    {
-        /// <summary>
-        /// Gets or sets the grade of a competitor.
-        /// </summary>
-        public int Grade { get; set; }
-    }
+    public int Grade { get; set; }
 }

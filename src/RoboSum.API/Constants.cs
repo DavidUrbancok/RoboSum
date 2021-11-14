@@ -1,18 +1,17 @@
-﻿namespace RoboSum.API
+﻿namespace RoboSum.API;
+
+/// <summary>
+/// Represents constants used through the application.
+/// </summary>
+public static class Constants
 {
     /// <summary>
-    /// Represents constants used through the application.
+    /// The 'api' constant used for API requests routing.
     /// </summary>
-    public static class Constants
-    {
-        /// <summary>
-        /// The 'api' constant used for API requests routing.
-        /// </summary>
-        public const string Api = "api";
+    public const string Api = "api";
 
-        /// <summary>
-        /// The 'vX' constant where X denotes the currently deployed API version.
-        /// </summary>
-        public const string CurrentVersion = "v1";
-    }
+    /// <summary>
+    /// The 'vX' constant where X denotes the currently deployed API version.
+    /// </summary>
+    public const string CurrentVersion = "v1";
 }

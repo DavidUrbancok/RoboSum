@@ -1,9 +1,8 @@
-﻿namespace RoboSum.DTOs
+﻿namespace RoboSum.DTOs;
+
+/// <summary>
+/// Represents a Data Transfer Object for a teacher.
+/// </summary>
+public class TeacherDto : PersonDto
 {
-    /// <summary>
-    /// Represents a Data Transfer Object for a teacher.
-    /// </summary>
-    public class TeacherDto : PersonDto
-    {
-    }
 }

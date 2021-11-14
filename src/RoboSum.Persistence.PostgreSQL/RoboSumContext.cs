@@ -1,30 +1,29 @@
-﻿namespace RoboSum.Persistence.PostgreSQL
+﻿namespace RoboSum.Persistence.PostgreSQL;
+
+using System;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+
+/// <summary>
+/// Represents a DB context for the <see cref="RoboSum"/> project.
+/// </summary>
+public class RoboSumContext : AbstractDbContext
 {
-    using System;
-    using Microsoft.EntityFrameworkCore;
-    using Microsoft.Extensions.Configuration;
+    private readonly IConfiguration _configuration;
 
     /// <summary>
-    /// Represents a DB context for the <see cref="RoboSum"/> project.
+    /// Initializes a new instance of the <see cref="RoboSumContext"/> class.
     /// </summary>
-    public class RoboSumContext : AbstractDbContext
+    /// <param name="configuration">The application configuration.</param>
+    /// <exception cref="ArgumentNullException">Thrown, when <paramref name="configuration"/> is <see langword="null"/>.</exception>
+    public RoboSumContext(IConfiguration configuration)
     {
-        private readonly IConfiguration _configuration;
+        _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
+    }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="RoboSumContext"/> class.
-        /// </summary>
-        /// <param name="configuration">The application configuration.</param>
-        /// <exception cref="ArgumentNullException">Thrown, when <paramref name="configuration"/> is <see langword="null"/>.</exception>
-        public RoboSumContext(IConfiguration configuration)
-        {
-            _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
-        }
-
-        /// <inheritdoc cref="DbContext.OnConfiguring(DbContextOptionsBuilder)"/>
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseNpgsql(_configuration.GetConnectionString("DefaultConnection"));
-        }
+    /// <inheritdoc cref="DbContext.OnConfiguring(DbContextOptionsBuilder)"/>
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.UseNpgsql(_configuration.GetConnectionString("DefaultConnection"));
     }
 }

@@ -1,11 +1,10 @@
-﻿namespace RoboSum.Services.Abstractions.Entities
-{
-    using RoboSum.DTOs;
+﻿namespace RoboSum.Services.Abstractions.Entities;
 
-    /// <summary>
-    /// Represents a contract for a service for <see cref="CompetitionDto"/> type.
-    /// </summary>
-    public interface ICompetitionService : IService<CompetitionDto>
-    {
-    }
+using RoboSum.DTOs;
+
+/// <summary>
+/// Represents a contract for a service for <see cref="CompetitionDto"/> type.
+/// </summary>
+public interface ICompetitionService : IService<CompetitionDto>
+{
 }
