@@ -11,8 +11,9 @@ public interface IRepository<TEntity> : IUnitOfWork
     /// Asynchronously gets the entity of <typeparamref name="TEntity"/> type by <paramref name="id"/>.
     /// </summary>
     /// <param name="id">The ID of the entity.</param>
+    /// <param name="cancellationToken">The notification that operations should be cancelled.</param>
     /// <returns>A <see cref="Task{TEntity}"/> containing the entity found by <paramref name="id"/>.</returns>
-    ValueTask<TEntity> GetByIdAsync(int id);
+    ValueTask<TEntity> GetByIdAsync(int id, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Gets all entities of <typeparamref name="TEntity"/>.
@@ -24,29 +25,32 @@ public interface IRepository<TEntity> : IUnitOfWork
     /// Asynchronously adds the entity of <typeparamref name="TEntity"/> type to the persistence layer.
     /// </summary>
     /// <param name="entity">The entity to persist.</param>
+    /// <param name="cancellationToken">The notification that operations should be cancelled.</param>
     /// <returns>
     /// A <see cref="Task"/> representing the current asynchronous operation.
     /// The task result contains the number of state entries written to the database.
     /// </returns>
-    Task<int> AddAsync(TEntity entity);
+    Task<int> AddAsync(TEntity entity, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Asynchronously updates the entity of <typeparamref name="TEntity"/> type in the persistence layer.
     /// </summary>
     /// <param name="entity">The entity to update.</param>
+    /// <param name="cancellationToken">The notification that operations should be cancelled.</param>
     /// <returns>
     /// A <see cref="Task"/> representing the current asynchronous operation.
     /// The task result contains the number of state entries written to the database.
     /// </returns>
-    Task<int> UpdateAsync(TEntity entity);
+    Task<int> UpdateAsync(TEntity entity, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Asynchronously deletes the entity of <typeparamref name="TEntity"/> type from the persistence layer.
     /// </summary>
     /// <param name="entity">The entity to delete.</param>
+    /// <param name="cancellationToken">The notification that operations should be cancelled.</param>
     /// <returns>
     /// A <see cref="Task"/> representing the current asynchronous operation.
     /// The task result contains the number of state entries removed from the database.
     /// </returns>
-    Task<int> DeleteAsync(TEntity entity);
+    Task<int> RemoveAsync(TEntity entity, CancellationToken cancellationToken = default);
 }

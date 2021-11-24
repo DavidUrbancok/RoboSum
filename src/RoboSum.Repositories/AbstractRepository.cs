@@ -27,10 +27,10 @@ public abstract class AbstractRepository<TEntity> : IRepository<TEntity>
     /// </summary>
     protected DbContext DbContext { get; }
 
-    /// <inheritdoc cref="IRepository{TEntity}.GetByIdAsync(int)"/>
-    public virtual ValueTask<TEntity> GetByIdAsync(int id)
+    /// <inheritdoc cref="IRepository{TEntity}.GetByIdAsync(int, CancellationToken)"/>
+    public virtual ValueTask<TEntity> GetByIdAsync(int id, CancellationToken cancellationToken = default)
     {
-        return _entities.FindAsync(id);
+        return _entities.FindAsync(new object[] { id, cancellationToken }, cancellationToken);
     }
 
     /// <inheritdoc cref="IRepository{TEntity}.GetAll()"/>
@@ -39,28 +39,28 @@ public abstract class AbstractRepository<TEntity> : IRepository<TEntity>
         return _entities.AsQueryable();
     }
 
-    /// <inheritdoc cref="IRepository{TEntity}.AddAsync(TEntity)"/>
-    public virtual async Task<int> AddAsync(TEntity entity)
+    /// <inheritdoc cref="IRepository{TEntity}.AddAsync(TEntity, CancellationToken)"/>
+    public virtual async Task<int> AddAsync(TEntity entity, CancellationToken cancellationToken = default)
     {
-        await _entities.AddAsync(entity);
+        await _entities.AddAsync(entity, cancellationToken);
 
-        return await SaveChangesAsync();
+        return await SaveChangesAsync(cancellationToken);
     }
 
-    /// <inheritdoc cref="IRepository{TEntity}.UpdateAsync(TEntity)"/>
-    public virtual Task<int> UpdateAsync(TEntity entity)
+    /// <inheritdoc cref="IRepository{TEntity}.UpdateAsync(TEntity, CancellationToken)"/>
+    public virtual Task<int> UpdateAsync(TEntity entity, CancellationToken cancellationToken = default)
     {
         _entities.Update(entity);
 
-        return SaveChangesAsync();
+        return SaveChangesAsync(cancellationToken);
     }
 
-    /// <inheritdoc cref="IRepository{TEntity}.DeleteAsync(TEntity)"/>
-    public virtual Task<int> DeleteAsync(TEntity entity)
+    /// <inheritdoc cref="IRepository{TEntity}.RemoveAsync(TEntity, CancellationToken)"/>
+    public virtual Task<int> RemoveAsync(TEntity entity, CancellationToken cancellationToken = default)
     {
         _entities.Remove(entity);
 
-        return SaveChangesAsync();
+        return SaveChangesAsync(cancellationToken);
     }
 
     /// <inheritdoc cref="IUnitOfWork.SaveChangesAsync(CancellationToken)"/>

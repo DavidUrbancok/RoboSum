@@ -68,6 +68,6 @@ public abstract class AbstractService<TRepository, TClass, TDto> : IService<TDto
     {
         TClass @class = _mapper.Map<TClass>(entity);
 
-        await _repository.DeleteAsync(@class);
+        await _repository.RemoveAsync(@class);
     }
 }
