@@ -12,12 +12,12 @@ public class TeacherBuilder : IEntityTypeConfiguration<Teacher>
     /// <inheritdoc cref="IEntityTypeConfiguration{TEntity}.Configure(EntityTypeBuilder{TEntity})"/>
     public void Configure(EntityTypeBuilder<Teacher> builder)
     {
-        builder
+        _ = builder
             .HasOne(teacher => teacher.School)
             .WithMany(school => school.Teachers)
             .HasForeignKey(teacher => teacher.SchoolId);
 
-        builder
+        _ = builder
             .HasMany(teacher => teacher.Teams)
             .WithOne(team => team.Teacher)
             .HasForeignKey(teacher => teacher.TeacherId);

@@ -12,6 +12,6 @@ public class CompetitorBuilder : IEntityTypeConfiguration<Competitor>
     /// <inheritdoc cref="IEntityTypeConfiguration{TEntity}.Configure(EntityTypeBuilder{TEntity})"/>
     public void Configure(EntityTypeBuilder<Competitor> builder)
     {
-        builder.Property(competitor => competitor.Grade).IsRequired();
+        _ = builder.Property(competitor => competitor.Grade).IsRequired();
     }
 }

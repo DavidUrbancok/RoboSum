@@ -12,6 +12,6 @@ public class CompetitionBuilder : IEntityTypeConfiguration<Competition>
     /// <inheritdoc cref="IEntityTypeConfiguration{TEntity}.Configure(EntityTypeBuilder{TEntity})"/>
     public void Configure(EntityTypeBuilder<Competition> builder)
     {
-        builder.HasKey(competition => competition.Id);
+        _ = builder.HasKey(competition => competition.Id);
     }
 }

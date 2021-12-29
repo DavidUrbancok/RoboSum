@@ -23,7 +23,7 @@ public abstract class AbstractService<TRepository, TClass, TDto> : IService<TDto
     /// <summary>
     /// Initializes a new instance of the <see cref="AbstractService{TRepository, TClass, TDto}"/> class.
     /// </summary>
-    /// <param name="repository">The repository that interacts with the persistance layer.</param>
+    /// <param name="repository">The repository that interacts with the persistence layer.</param>
     /// <param name="mapper">The DTO to entity mapper instance.</param>
     protected AbstractService(TRepository repository, IMapper mapper)
     {
@@ -34,7 +34,7 @@ public abstract class AbstractService<TRepository, TClass, TDto> : IService<TDto
     /// <inheritdoc cref="IService{TDto}.GetAsync(int)"/>
     public async Task<TDto> GetAsync(int id)
     {
-        TClass @class = await _repository.GetByIdAsync(id);
+        var @class = await _repository.GetByIdAsync(id);
 
         return _mapper.Map<TDto>(@class);
     }
@@ -42,7 +42,7 @@ public abstract class AbstractService<TRepository, TClass, TDto> : IService<TDto
     /// <inheritdoc cref="IService{TDto}.GetAll()"/>
     public IQueryable<TDto> GetAll()
     {
-        IQueryable<TClass> classes = _repository.GetAll();
+        var classes = _repository.GetAll();
 
         return _mapper.Map<IQueryable<TDto>>(classes);
     }
@@ -50,24 +50,24 @@ public abstract class AbstractService<TRepository, TClass, TDto> : IService<TDto
     /// <inheritdoc cref="IService{TDto}.AddAsync(TDto)"/>
     public async Task AddAsync(TDto entity)
     {
-        TClass @class = _mapper.Map<TClass>(entity);
+        var @class = _mapper.Map<TClass>(entity);
 
-        await _repository.UpdateAsync(@class);
+        _ = await _repository.UpdateAsync(@class);
     }
 
     /// <inheritdoc cref="IService{TDto}.UpdateAsync(TDto)"/>
     public async Task UpdateAsync(TDto entity)
     {
-        TClass @class = _mapper.Map<TClass>(entity);
+        var @class = _mapper.Map<TClass>(entity);
 
-        await _repository.UpdateAsync(@class);
+        _ = await _repository.UpdateAsync(@class);
     }
 
     /// <inheritdoc cref="IService{TDto}.DeleteAsync(TDto)"/>
     public async Task DeleteAsync(TDto entity)
     {
-        TClass @class = _mapper.Map<TClass>(entity);
+        var @class = _mapper.Map<TClass>(entity);
 
-        await _repository.RemoveAsync(@class);
+        _ = await _repository.RemoveAsync(@class);
     }
 }

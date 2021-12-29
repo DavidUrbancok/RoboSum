@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RoboSum.Domain\RoboSum.Domain.csproj" />
-    <ProjectReference Include="..\RoboSum.Persistence\RoboSum.Persistence.csproj" />
+    <ProjectReference Include="..\RoboSum.Persistence\RoboSum.Persistence.SQL.csproj" />
   </ItemGroup>
 
 </Project>

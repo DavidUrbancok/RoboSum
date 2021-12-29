@@ -11,7 +11,7 @@ public partial class InitialMigration : Migration
     /// <inheritdoc cref="Migration.Up(MigrationBuilder)"/>
     protected override void Up(MigrationBuilder migrationBuilder)
     {
-        migrationBuilder.CreateTable(
+        _ = migrationBuilder.CreateTable(
             name: "Competitions",
             columns: table => new
             {
@@ -23,10 +23,10 @@ public partial class InitialMigration : Migration
             },
             constraints: table =>
             {
-                table.PrimaryKey("PK_Competitions", x => x.Id);
+                _ = table.PrimaryKey("PK_Competitions", x => x.Id);
             });
 
-        migrationBuilder.CreateTable(
+        _ = migrationBuilder.CreateTable(
             name: "Schools",
             columns: table => new
             {
@@ -37,10 +37,10 @@ public partial class InitialMigration : Migration
             },
             constraints: table =>
             {
-                table.PrimaryKey("PK_Schools", x => x.Id);
+                _ = table.PrimaryKey("PK_Schools", x => x.Id);
             });
 
-        migrationBuilder.CreateTable(
+        _ = migrationBuilder.CreateTable(
             name: "Registrations",
             columns: table => new
             {
@@ -53,8 +53,8 @@ public partial class InitialMigration : Migration
             },
             constraints: table =>
             {
-                table.PrimaryKey("PK_Registrations", x => x.Id);
-                table.ForeignKey(
+                _ = table.PrimaryKey("PK_Registrations", x => x.Id);
+                _ = table.ForeignKey(
                     name: "FK_Registrations_Competitions_CompetitionId",
                     column: x => x.CompetitionId,
                     principalTable: "Competitions",
@@ -62,7 +62,7 @@ public partial class InitialMigration : Migration
                     onDelete: ReferentialAction.Cascade);
             });
 
-        migrationBuilder.CreateTable(
+        _ = migrationBuilder.CreateTable(
             name: "Addresses",
             columns: table => new
             {
@@ -77,8 +77,8 @@ public partial class InitialMigration : Migration
             },
             constraints: table =>
             {
-                table.PrimaryKey("PK_Addresses", x => x.Id);
-                table.ForeignKey(
+                _ = table.PrimaryKey("PK_Addresses", x => x.Id);
+                _ = table.ForeignKey(
                     name: "FK_Addresses_Schools_SchoolId",
                     column: x => x.SchoolId,
                     principalTable: "Schools",
@@ -86,7 +86,7 @@ public partial class InitialMigration : Migration
                     onDelete: ReferentialAction.Cascade);
             });
 
-        migrationBuilder.CreateTable(
+        _ = migrationBuilder.CreateTable(
             name: "Person",
             columns: table => new
             {
@@ -101,8 +101,8 @@ public partial class InitialMigration : Migration
             },
             constraints: table =>
             {
-                table.PrimaryKey("PK_Person", x => x.Id);
-                table.ForeignKey(
+                _ = table.PrimaryKey("PK_Person", x => x.Id);
+                _ = table.ForeignKey(
                     name: "FK_Person_Schools_SchoolId",
                     column: x => x.SchoolId,
                     principalTable: "Schools",
@@ -110,7 +110,7 @@ public partial class InitialMigration : Migration
                     onDelete: ReferentialAction.Cascade);
             });
 
-        migrationBuilder.CreateTable(
+        _ = migrationBuilder.CreateTable(
             name: "Teams",
             columns: table => new
             {
@@ -123,20 +123,20 @@ public partial class InitialMigration : Migration
             },
             constraints: table =>
             {
-                table.PrimaryKey("PK_Teams", x => x.Id);
-                table.ForeignKey(
+                _ = table.PrimaryKey("PK_Teams", x => x.Id);
+                _ = table.ForeignKey(
                     name: "FK_Teams_Person_TeacherId",
                     column: x => x.TeacherId,
                     principalTable: "Person",
                     principalColumn: "Id",
                     onDelete: ReferentialAction.Cascade);
-                table.ForeignKey(
+                _ = table.ForeignKey(
                     name: "FK_Teams_Registrations_RegistrationId",
                     column: x => x.RegistrationId,
                     principalTable: "Registrations",
                     principalColumn: "Id",
                     onDelete: ReferentialAction.Cascade);
-                table.ForeignKey(
+                _ = table.ForeignKey(
                     name: "FK_Teams_Schools_SchoolId",
                     column: x => x.SchoolId,
                     principalTable: "Schools",
@@ -144,45 +144,45 @@ public partial class InitialMigration : Migration
                     onDelete: ReferentialAction.Cascade);
             });
 
-        migrationBuilder.CreateIndex(
+        _ = migrationBuilder.CreateIndex(
             name: "IX_Addresses_SchoolId",
             table: "Addresses",
             column: "SchoolId",
             unique: true);
 
-        migrationBuilder.CreateIndex(
+        _ = migrationBuilder.CreateIndex(
             name: "IX_Person_SchoolId",
             table: "Person",
             column: "SchoolId");
 
-        migrationBuilder.CreateIndex(
+        _ = migrationBuilder.CreateIndex(
             name: "IX_Person_TeamId",
             table: "Person",
             column: "TeamId");
 
-        migrationBuilder.CreateIndex(
+        _ = migrationBuilder.CreateIndex(
             name: "IX_Registrations_CompetitionId",
             table: "Registrations",
             column: "CompetitionId",
             unique: true);
 
-        migrationBuilder.CreateIndex(
+        _ = migrationBuilder.CreateIndex(
             name: "IX_Teams_RegistrationId",
             table: "Teams",
             column: "RegistrationId",
             unique: true);
 
-        migrationBuilder.CreateIndex(
+        _ = migrationBuilder.CreateIndex(
             name: "IX_Teams_SchoolId",
             table: "Teams",
             column: "SchoolId");
 
-        migrationBuilder.CreateIndex(
+        _ = migrationBuilder.CreateIndex(
             name: "IX_Teams_TeacherId",
             table: "Teams",
             column: "TeacherId");
 
-        migrationBuilder.AddForeignKey(
+        _ = migrationBuilder.AddForeignKey(
             name: "FK_Person_Teams_TeamId",
             table: "Person",
             column: "TeamId",
@@ -194,26 +194,26 @@ public partial class InitialMigration : Migration
     /// <inheritdoc cref="Migration.Down(MigrationBuilder)"/>
     protected override void Down(MigrationBuilder migrationBuilder)
     {
-        migrationBuilder.DropForeignKey(
+        _ = migrationBuilder.DropForeignKey(
             name: "FK_Person_Teams_TeamId",
             table: "Person");
 
-        migrationBuilder.DropTable(
+        _ = migrationBuilder.DropTable(
             name: "Addresses");
 
-        migrationBuilder.DropTable(
+        _ = migrationBuilder.DropTable(
             name: "Teams");
 
-        migrationBuilder.DropTable(
+        _ = migrationBuilder.DropTable(
             name: "Person");
 
-        migrationBuilder.DropTable(
+        _ = migrationBuilder.DropTable(
             name: "Registrations");
 
-        migrationBuilder.DropTable(
+        _ = migrationBuilder.DropTable(
             name: "Schools");
 
-        migrationBuilder.DropTable(
+        _ = migrationBuilder.DropTable(
             name: "Competitions");
     }
 }

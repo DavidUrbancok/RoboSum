@@ -1,0 +1,11 @@
+{
+  "auth": {
+    "username": "<username>",
+    "password": "<password>"
+  },
+  "clusterAddress": "<clusterAddress>",
+  "db": {
+    "database": "<database>",
+    "collection": "<collection>"
+  }
+}

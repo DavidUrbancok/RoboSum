@@ -42,7 +42,7 @@ public abstract class AbstractRepository<TEntity> : IRepository<TEntity>
     /// <inheritdoc cref="IRepository{TEntity}.AddAsync(TEntity, CancellationToken)"/>
     public virtual async Task<int> AddAsync(TEntity entity, CancellationToken cancellationToken = default)
     {
-        await _entities.AddAsync(entity, cancellationToken);
+        _ = await _entities.AddAsync(entity, cancellationToken);
 
         return await SaveChangesAsync(cancellationToken);
     }
@@ -50,7 +50,7 @@ public abstract class AbstractRepository<TEntity> : IRepository<TEntity>
     /// <inheritdoc cref="IRepository{TEntity}.UpdateAsync(TEntity, CancellationToken)"/>
     public virtual Task<int> UpdateAsync(TEntity entity, CancellationToken cancellationToken = default)
     {
-        _entities.Update(entity);
+        _ = _entities.Update(entity);
 
         return SaveChangesAsync(cancellationToken);
     }
@@ -58,7 +58,7 @@ public abstract class AbstractRepository<TEntity> : IRepository<TEntity>
     /// <inheritdoc cref="IRepository{TEntity}.RemoveAsync(TEntity, CancellationToken)"/>
     public virtual Task<int> RemoveAsync(TEntity entity, CancellationToken cancellationToken = default)
     {
-        _entities.Remove(entity);
+        _ = _entities.Remove(entity);
 
         return SaveChangesAsync(cancellationToken);
     }

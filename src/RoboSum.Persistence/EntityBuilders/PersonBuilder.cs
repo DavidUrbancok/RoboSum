@@ -12,9 +12,9 @@ public class PersonBuilder : IEntityTypeConfiguration<Person>
     /// <inheritdoc cref="IEntityTypeConfiguration{TEntity}.Configure(EntityTypeBuilder{TEntity})"/>
     public void Configure(EntityTypeBuilder<Person> builder)
     {
-        builder.HasKey(person => person.Id);
+        _ = builder.HasKey(person => person.Id);
 
-        builder.Property(person => person.FirstName).IsRequired().HasMaxLength(128);
-        builder.Property(person => person.LastName).IsRequired().HasMaxLength(128);
+        _ = builder.Property(person => person.FirstName).IsRequired().HasMaxLength(128);
+        _ = builder.Property(person => person.LastName).IsRequired().HasMaxLength(128);
     }
 }

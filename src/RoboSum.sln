@@ -20,9 +20,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoboSum.Services", "RoboSum
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoboSum.Services.Abstractions", "RoboSum.Services.Abstractions\RoboSum.Services.Abstractions.csproj", "{67D03E6B-055C-4A59-B724-3A2DD2DAE537}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{32DAA139-8B32-449A-8426-3DE4DBE90594}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistence", "Persistence", "{32DAA139-8B32-449A-8426-3DE4DBE90594}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoboSum.Persistence", "RoboSum.Persistence\RoboSum.Persistence.csproj", "{E4A39B99-9730-4B83-B725-F069792932C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoboSum.Persistence.SQL", "RoboSum.Persistence\RoboSum.Persistence.SQL.csproj", "{E4A39B99-9730-4B83-B725-F069792932C7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoboSum.Persistence.PostgreSQL", "RoboSum.Persistence.PostgreSQL\RoboSum.Persistence.PostgreSQL.csproj", "{5CC921E3-315D-4938-BD38-1C66380888F1}"
 EndProject
@@ -32,7 +32,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{277163A2-E69A-48B9-BDA2-BD37A33EBA8D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoboSum.Repositories", "RoboSum.Repositories\RoboSum.Repositories.csproj", "{81629D8C-F8B0-4D16-BBD4-E53BCDBB2045}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoboSum.Repositories", "RoboSum.Repositories\RoboSum.Repositories.csproj", "{81629D8C-F8B0-4D16-BBD4-E53BCDBB2045}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoboSum.Logging.MongoDB", "RoboSum.Persistence.MongoDB\RoboSum.Logging.MongoDB.csproj", "{7D734557-D5A7-4F5B-B692-E8B279DF16F1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoboSum.Logging,Abstractions", "RoboSum.Persistence.NoSQL\RoboSum.Logging,Abstractions.csproj", "{8C5B7F4D-2E74-44D8-A6A4-440DA11B96B9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logging", "Logging", "{33EDD595-0D5F-43AC-80B7-8A40A22FB814}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -72,6 +78,14 @@ Global
 		{81629D8C-F8B0-4D16-BBD4-E53BCDBB2045}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81629D8C-F8B0-4D16-BBD4-E53BCDBB2045}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81629D8C-F8B0-4D16-BBD4-E53BCDBB2045}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D734557-D5A7-4F5B-B692-E8B279DF16F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D734557-D5A7-4F5B-B692-E8B279DF16F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D734557-D5A7-4F5B-B692-E8B279DF16F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D734557-D5A7-4F5B-B692-E8B279DF16F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C5B7F4D-2E74-44D8-A6A4-440DA11B96B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C5B7F4D-2E74-44D8-A6A4-440DA11B96B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C5B7F4D-2E74-44D8-A6A4-440DA11B96B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C5B7F4D-2E74-44D8-A6A4-440DA11B96B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -86,6 +100,9 @@ Global
 		{E4A39B99-9730-4B83-B725-F069792932C7} = {32DAA139-8B32-449A-8426-3DE4DBE90594}
 		{5CC921E3-315D-4938-BD38-1C66380888F1} = {32DAA139-8B32-449A-8426-3DE4DBE90594}
 		{81629D8C-F8B0-4D16-BBD4-E53BCDBB2045} = {277163A2-E69A-48B9-BDA2-BD37A33EBA8D}
+		{7D734557-D5A7-4F5B-B692-E8B279DF16F1} = {33EDD595-0D5F-43AC-80B7-8A40A22FB814}
+		{8C5B7F4D-2E74-44D8-A6A4-440DA11B96B9} = {33EDD595-0D5F-43AC-80B7-8A40A22FB814}
+		{33EDD595-0D5F-43AC-80B7-8A40A22FB814} = {277163A2-E69A-48B9-BDA2-BD37A33EBA8D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {83144BD2-3B02-4180-A0BC-572141EE212D}

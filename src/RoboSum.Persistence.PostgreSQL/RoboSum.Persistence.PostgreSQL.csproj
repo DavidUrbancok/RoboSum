@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RoboSum.Persistence\RoboSum.Persistence.csproj" />
+    <ProjectReference Include="..\RoboSum.Persistence\RoboSum.Persistence.SQL.csproj" />
   </ItemGroup>
 
   <ItemGroup>

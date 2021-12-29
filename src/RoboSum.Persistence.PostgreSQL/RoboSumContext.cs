@@ -24,6 +24,6 @@ public class RoboSumContext : AbstractDbContext
     /// <inheritdoc cref="DbContext.OnConfiguring(DbContextOptionsBuilder)"/>
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseNpgsql(_configuration.GetConnectionString("DefaultConnection"));
+        _ = optionsBuilder.UseNpgsql(_configuration.GetConnectionString("DefaultConnection"));
     }
 }

@@ -1,4 +1,4 @@
-namespace RoboSum.API;
+﻿namespace RoboSum.API;
 
 using RoboSum.Persistence;
 
@@ -13,26 +13,28 @@ public static class Program
     /// <param name="args">The command line arguments.</param>
     public static void Main(string[] args)
     {
-        WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+        var builder = WebApplication.CreateBuilder(args);
 
-        WebApplication app = ConfigureServices(builder).Build();
+        var app = ConfigureServices(builder).Build();
 
         Configure(app);
+
+        AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
 
         app.Run();
     }
 
     private static WebApplicationBuilder ConfigureServices(WebApplicationBuilder builder)
     {
-        IServiceCollection services = builder.Services;
+        var services = builder.Services;
 
         // Add services to the container.
-        services.AddControllers();
-        services.AddDbContext<AbstractDbContext>();
+        _ = services.AddControllers();
+        _ = services.AddDbContext<AbstractDbContext>();
 
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-        services.AddEndpointsApiExplorer();
-        services.AddSwaggerGen();
+        _ = services.AddEndpointsApiExplorer();
+        _ = services.AddSwaggerGen();
 
         return builder;
     }
@@ -42,13 +44,17 @@ public static class Program
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
         {
-            app.UseDeveloperExceptionPage();
-            app.UseSwagger();
-            app.UseSwaggerUI();
+            _ = app.UseDeveloperExceptionPage();
+            _ = app.UseSwagger();
+            _ = app.UseSwaggerUI();
         }
 
-        app.UseHttpsRedirection();
-        app.UseAuthorization();
-        app.MapControllers();
+        _ = app.UseHttpsRedirection();
+        _ = app.UseAuthorization();
+        _ = app.MapControllers();
+    }
+
+    private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+    {
     }
 }

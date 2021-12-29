@@ -12,16 +12,16 @@ public class RegistrationBuilder : IEntityTypeConfiguration<Registration>
     /// <inheritdoc cref="IEntityTypeConfiguration{TEntity}.Configure(EntityTypeBuilder{TEntity})"/>
     public void Configure(EntityTypeBuilder<Registration> builder)
     {
-        builder.HasKey(registration => registration.Id);
+        _ = builder.HasKey(registration => registration.Id);
 
-        builder.Property(registration => registration.RegistrationYear).IsRequired();
+        _ = builder.Property(registration => registration.RegistrationYear).IsRequired();
 
-        builder
+        _ = builder
             .HasOne(registration => registration.Team)
             .WithOne(team => team.Registration)
             .HasForeignKey<Registration>(registration => registration.TeamId);
 
-        builder
+        _ = builder
             .HasOne(registration => registration.Competition)
             .WithOne(competition => competition.Registration)
             .HasForeignKey<Registration>(registration => registration.CompetitionId);

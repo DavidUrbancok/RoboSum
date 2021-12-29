@@ -1,5 +1,8 @@
 ﻿namespace RoboSum.Services.Abstractions;
 
+using System.Linq;
+using System.Threading.Tasks;
+
 /// <summary>
 /// Represents a contract for a generic service for <typeparamref name="TDto"/> type.
 /// </summary>
