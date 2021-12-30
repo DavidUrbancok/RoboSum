@@ -21,8 +21,6 @@ public static class Program
 
         Configure(app);
 
-        AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
-
         app.Run();
     }
 
@@ -57,9 +55,5 @@ public static class Program
         _ = app.UseHttpsRedirection();
         _ = app.UseAuthorization();
         _ = app.MapControllers();
-    }
-
-    private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
-    {
     }
 }
