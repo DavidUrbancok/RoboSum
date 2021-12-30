@@ -1,5 +1,7 @@
 ﻿namespace RoboSum.API;
 
+using RoboSum.Logging.Abstractions;
+using RoboSum.Logging.MongoDB;
 using RoboSum.Persistence;
 
 /// <summary>
@@ -31,6 +33,9 @@ public static class Program
         // Add services to the container.
         _ = services.AddControllers();
         _ = services.AddDbContext<AbstractDbContext>();
+
+        _ = services.AddTransient<ILogger<LogItem>, MongoDbLogger<LogItem>>();
+        _ = services.AddTransient<ILoggerFactory<LogItem>, MongoDbLoggerFactory<LogItem>>();
 
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         _ = services.AddEndpointsApiExplorer();

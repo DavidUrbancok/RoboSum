@@ -26,6 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\RoboSum.Persistence.MongoDB\RoboSum.Logging.MongoDB.csproj" />
     <ProjectReference Include="..\RoboSum.Persistence.PostgreSQL\RoboSum.Persistence.PostgreSQL.csproj" />
   </ItemGroup>
 

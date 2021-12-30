@@ -7,12 +7,14 @@ using RoboSum.Logging.Abstractions;
 /// <summary>
 /// Represents a logger for logging messages to Mongo DB.
 /// </summary>
-public class MongoDbLoggerFactory : ILoggerFactory<LogItem>
+/// <typeparam name="TLogItem">The type of the log item.</typeparam>
+public class MongoDbLoggerFactory<TLogItem> : ILoggerFactory<TLogItem>
+    where TLogItem : LogItem
 {
-    private readonly IMongoCollection<LogItem> _mongoCollection;
+    private readonly IMongoCollection<TLogItem> _mongoCollection;
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="MongoDbLoggerFactory"/> class.
+    /// Initializes a new instance of the <see cref="MongoDbLoggerFactory{TLogItem}"/> class.
     /// </summary>
     public MongoDbLoggerFactory()
     {
@@ -29,12 +31,12 @@ public class MongoDbLoggerFactory : ILoggerFactory<LogItem>
 
         var database = client.GetDatabase(databaseName);
 
-        _mongoCollection = database.GetCollection<LogItem>(collection);
+        _mongoCollection = database.GetCollection<TLogItem>(collection);
     }
 
     /// <inheritdoc/>
-    public ILogger<LogItem> Create()
+    public ILogger<TLogItem> Create()
     {
-        return new MongoDbLogger<LogItem>(_mongoCollection);
+        return new MongoDbLogger<TLogItem>(_mongoCollection);
     }
 }
