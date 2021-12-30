@@ -52,7 +52,7 @@ public abstract class AbstractService<TRepository, TClass, TDto> : IService<TDto
     {
         var @class = _mapper.Map<TClass>(entity);
 
-        _ = await _repository.UpdateAsync(@class);
+        _ = await _repository.AddAsync(@class);
     }
 
     /// <inheritdoc cref="IService{TDto}.UpdateAsync(TDto)"/>
