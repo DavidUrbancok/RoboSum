@@ -1,8 +1,8 @@
-﻿namespace RoboSum.Persistence.EntityBuilders;
+﻿namespace RoboSum.Persistence.SQL.EntityBuilders;
 
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using RoboSum.Domain.Entities;
 
 /// <summary>
 /// Represents an entity builder for <see cref="Address"/>.

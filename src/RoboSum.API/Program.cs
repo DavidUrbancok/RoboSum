@@ -1,5 +1,6 @@
 ﻿namespace RoboSum.API;
 
+using Persistence.SQL;
 using RoboSum.Logging.Abstractions;
 using RoboSum.Logging.MongoDB;
 using RoboSum.Persistence;

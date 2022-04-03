@@ -1,5 +1,6 @@
 ﻿namespace RoboSum.Repositories.Entities;
 
+using Persistence.SQL;
 using RoboSum.Domain.Entities;
 using RoboSum.Domain.Repositories.Entities;
 using RoboSum.Persistence;

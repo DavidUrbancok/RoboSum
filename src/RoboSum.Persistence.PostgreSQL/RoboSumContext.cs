@@ -3,6 +3,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using SQL;
 
 /// <summary>
 /// Represents a DB context for the <see cref="RoboSum"/> project.

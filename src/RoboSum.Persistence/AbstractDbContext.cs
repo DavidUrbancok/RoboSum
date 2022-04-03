@@ -1,7 +1,7 @@
-﻿namespace RoboSum.Persistence;
+﻿namespace RoboSum.Persistence.SQL;
 
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using RoboSum.Domain.Entities;
 
 /// <summary>
 /// Represents the application's database context. This is an abstract class.
