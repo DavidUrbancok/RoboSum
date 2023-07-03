@@ -28,7 +28,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{124DD283-6A26-4941-9BEC-8193F16C4DAD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logging", "Logging", "{F1972648-2995-48CF-941E-379D2CBE96C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoboSum.Logging.Contracts", "Source Code\Core\Logging\RoboSum.Logging.Contracts\RoboSum.Logging.Contracts.csproj", "{6F0C276C-683B-46A9-A89D-FE5A2ADAE6FC}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F0C276C-683B-46A9-A89D-FE5A2ADAE6FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F0C276C-683B-46A9-A89D-FE5A2ADAE6FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F0C276C-683B-46A9-A89D-FE5A2ADAE6FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F0C276C-683B-46A9-A89D-FE5A2ADAE6FC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
@@ -41,6 +55,8 @@ Global
 		{F2AB086E-1E44-41A4-AF65-85AE732E57B9} = {D88C859B-57CD-44B9-93E3-643184B34711}
 		{4297AE62-0B2C-4FB2-BE92-E5C54A06250A} = {D88C859B-57CD-44B9-93E3-643184B34711}
 		{124DD283-6A26-4941-9BEC-8193F16C4DAD} = {D88C859B-57CD-44B9-93E3-643184B34711}
+		{F1972648-2995-48CF-941E-379D2CBE96C5} = {C7BF0C30-FC00-422B-8E20-B6AA8966B6C9}
+		{6F0C276C-683B-46A9-A89D-FE5A2ADAE6FC} = {F1972648-2995-48CF-941E-379D2CBE96C5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {83144BD2-3B02-4180-A0BC-572141EE212D}
